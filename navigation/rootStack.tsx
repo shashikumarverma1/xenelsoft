@@ -1,7 +1,8 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screen/homeScreen';
 import { JobPost } from '../screen/jobPost';
-import { MapScreen } from '../screen/mapScreen';
+import MapScreen from '../screen/mapScreen';
+
 
 
 

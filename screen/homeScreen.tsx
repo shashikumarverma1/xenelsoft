@@ -54,14 +54,14 @@ start helping and get rewarded`
                 <Text style={styles.needCashText}>NEED Cash?</Text>
                 <Text style={styles.slideUp}>SLIDE UP</Text>
                 <View style={{ paddingVertical: 15 }}>
-                  <TouchableOpacity onPress={handleSlideUp}>
-                      <Image
-                        source={SlideUp}
-                        style={styles.slideUpImage}
-                    />
-                  </TouchableOpacity>
+                <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
+  <Image
+    source={SlideUp}
+    style={styles.slideUpImage}
+  />
+</TouchableOpacity>
                   {/* handleSlideDown */}
-                 <TouchableOpacity onPress={handleSlideDown}>
+                 <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
                        <Image
                         source={SlideDown}
                         style={styles.slideDownImage}
