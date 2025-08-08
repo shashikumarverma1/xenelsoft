@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 100,
         width: windowWidth * .9,
-        marginVertical: 20,
+        marginTop: 20,
 
     },
     buttonLable: {
@@ -99,16 +99,20 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        width: "100%"
+        width: '100%',
+        paddingHorizontal:15,
     },
     location: {
-        width: 72,
-        height: 72,
+        width: 50,
+        height: 50,
         marginLeft: 10
     },
     starTextContainer: {
         flexDirection: "row",
         alignItems: "center",
+       
+        width: '100%',
+        paddingHorizontal:20,
     },
     starContainer: {
         flexDirection: "row",

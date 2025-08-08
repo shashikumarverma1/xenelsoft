@@ -6,20 +6,21 @@ import Profile from '../assets/images/home/profile.png';
 import Menu from '../assets/icons/menu.png';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
     const handleMenu = () => {
         console.log('Menu pressed');
     };
-    const handleSlideUp=()=>{
+    const handleSlideUp = () => {
         console.log('Slide Up pressed');
-        navigation.navigate('JobPost'); 
+        navigation.navigate('JobPost');
     }
-      const handleSlideDown=()=>{
-       navigation.navigate('MapScreen');
+    const handleSlideDown = () => {
+        navigation.navigate('MapScreen');
     }
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor="#4CAF50" barStyle="light-content" />
+            <StatusBar backgroundColor="#7BB88E" barStyle="light-content" />
+           <ScrollView style={styles.scrollContainer}>
             <View style={styles.headContainer}>
                 <View style={styles.header}>
                     <Image
@@ -43,8 +44,9 @@ Jamil Hashem`}</Text>
                 </TouchableOpacity>
             </View>
 
-            <ScrollView>
-                <Text style={styles.peopleText}>{
+          
+          <View style={styles.bodyContainer}>
+                  <Text style={styles.peopleText}>{
                     `People around you need your 
 assistance
 start helping and get rewarded`
@@ -52,21 +54,25 @@ start helping and get rewarded`
 
 
                 <Text style={styles.needCashText}>NEED Cash?</Text>
-                <Text style={styles.slideUp}>SLIDE UP</Text>
-                <View style={{ paddingVertical: 15 }}>
-                <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
-  <Image
-    source={SlideUp}
-    style={styles.slideUpImage}
-  />
-</TouchableOpacity>
-                  {/* handleSlideDown */}
-                 <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
-                       <Image
-                        source={SlideDown}
-                        style={styles.slideDownImage}
-                    />
-                 </TouchableOpacity>
+                <View style={styles.slideDownContainer}>
+                    <Text style={styles.slide}>SLIDE </Text>
+                    <Text style={styles.slideDown}>UP</Text>
+
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
+                        <Image
+                            source={SlideUp}
+                            style={styles.slideUpImage}
+                        />
+                    </TouchableOpacity>
+                    {/* handleSlideDown */}
+                    <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
+                        <Image
+                            source={SlideDown}
+                            style={styles.slideDownImage}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <Text style={styles.needText}>NEED Assistant?</Text>
                 <View style={styles.slideDownContainer}>
@@ -77,12 +83,28 @@ start helping and get rewarded`
                 <Text style={styles.bottomText}>
                     {`No worries many people near you\nare glad to help you\nDon't forget to reward them!`}
                 </Text>
+          </View>
             </ScrollView>
 
         </View>
     );
 }
 const styles = StyleSheet.create({
+    bodyContainer:{
+           backgroundColor: "#ffffff",
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        marginTop: -20,
+    },
+    imageContainer: {
+         paddingVertical: 40 
+    },
+    scrollContainer: {
+        backgroundColor: "#ffffff",
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        // marginTop: -20,
+    },
     greetDescrition: {
         fontWeight: "400",
         fontSize: 16,
@@ -98,7 +120,7 @@ const styles = StyleSheet.create({
     headContainer: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#4CAF50",
+        backgroundColor: "#7BB88E",
     },
     menu: {
         width: 15,
@@ -108,9 +130,10 @@ const styles = StyleSheet.create({
     peopleText: {
         textAlign: "center",
         fontWeight: "500",
-        fontSize: 24,
+        fontSize: 18,
         color: "#919191",
-        paddingVertical: 15,
+        paddingTop: 30,
+        lineHeight: 24
     },
     slideUp: {
         fontWeight: "700",
@@ -144,13 +167,14 @@ const styles = StyleSheet.create({
         fontWeight: "800",
         fontSize: 32,
         color: "#F7C65B",
-        textAlign: "center"
+        textAlign: "center",
+
     },
     slideDownContainer: {
         alignSelf: "center",
         flexDirection: "row",
         justifyContent: "center",
-        marginTop: 5
+        marginTop: -5
     },
     slideDown: {
         fontSize: 22,
@@ -168,16 +192,17 @@ const styles = StyleSheet.create({
         color: "#919191",
         textAlign: "center",
         lineHeight: 25,
-        marginTop: 20
+        marginTop: 20, 
+        paddingBottom: 55
     },
     container: {
         flex: 1,
         backgroundColor: '#ffffff',
     },
     header: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#7BB88E',
         paddingTop: 60,
-        paddingBottom: 30,
+        paddingBottom: 80,
         paddingHorizontal: 20,
         flexDirection: 'row',
         alignItems: "center"
