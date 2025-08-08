@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import BackIcon from '../assets/icons/back.png';
 import RedLocation from '../assets/icons/bigRedLocation.png';
-import StarRating from '../component/start';
+import StarRating from '../component/star';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Dimensions, } from 'react-native';
 
