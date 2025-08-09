@@ -35,10 +35,7 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#7BB88E" barStyle="light-content" />
-            <ScrollView style={styles.scrollContainer}
-                showsVerticalScrollIndicator={false}
-
-            >
+          
                 <View style={styles.headContainer}>
                     <View style={styles.header}>
                         <Image
@@ -65,7 +62,10 @@ Jamil Hashem`}</Text>
                             style={styles.menu} />
                     </TouchableOpacity>
                 </View>
+  <ScrollView style={styles.scrollContainer}
+                showsVerticalScrollIndicator={false}
 
+            >
 
                 <View style={styles.bodyContainer}>
                     <Text style={styles.peopleText}>{
@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffffff",
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
-        // marginTop: -20,
+        marginTop: -20,
+      paddingTop:20,
     },
     greetDescrition: {
         fontWeight: "400",
