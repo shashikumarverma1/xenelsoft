@@ -20,84 +20,87 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#7BB88E" barStyle="light-content" />
-           <ScrollView style={styles.scrollContainer}>
-            <View style={styles.headContainer}>
-                <View style={styles.header}>
-                    <Image
-                        source={Profile}
-                        style={styles.profileImage}
-                    />
+            <ScrollView style={styles.scrollContainer} 
+            showsVerticalScrollIndicator={false} 
+
+            >
+                <View style={styles.headContainer}>
+                    <View style={styles.header}>
+                        <Image
+                            source={Profile}
+                            style={styles.profileImage}
+                        />
 
 
-                    <View style={{ paddingLeft: 10 }}>
-                        <Text style={styles.greetingText}>{`Hello :)
+                        <View style={{ paddingLeft: 10 }}>
+                            <Text style={styles.greetingText}>{`Hello :)
 Jamil Hashem`}</Text>
 
-                        <Text style={styles.greetDescrition}>What are you up to today?</Text>
+                            <Text style={styles.greetDescrition}>What are you up to today?</Text>
+                        </View>
+
                     </View>
-
+                    <TouchableOpacity onPress={handleMenu} style={[{ backgroundColor: "#ffffff", padding: 16, borderRadius: 50, position: "relative", top: -35, left: -15 }]}>
+                        <Image
+                            source={Menu}
+                            style={styles.menu} />
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={handleMenu} style={[{ backgroundColor: "#ffffff", padding: 16, borderRadius: 50, position: "relative", top: -35, left: -15 }]}>
-                    <Image
-                        source={Menu}
-                        style={styles.menu} />
-                </TouchableOpacity>
-            </View>
 
-          
-          <View style={styles.bodyContainer}>
-                  <Text style={styles.peopleText}>{
-                    `People around you need your 
+
+                <View style={styles.bodyContainer}>
+                    <Text style={styles.peopleText}>{
+                        `People around you need your 
 assistance
 start helping and get rewarded`
-                }</Text>
+                    }</Text>
 
 
-                <Text style={styles.needCashText}>NEED Cash?</Text>
-                <View style={styles.slideDownContainer}>
-                    <Text style={styles.slide}>SLIDE </Text>
-                    <Text style={styles.slideDown}>UP</Text>
+                    <Text style={styles.needCashText}>NEED Cash?</Text>
+                    <View style={styles.slideDownContainer}>
+                        <Text style={styles.slide}>SLIDE </Text>
+                        <Text style={styles.slideDown}>UP</Text>
 
+                    </View>
+                    <View style={styles.imageContainer}>
+                        <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
+                            <Image
+                                source={SlideUp}
+                                style={styles.slideUpImage}
+                            />
+                        </TouchableOpacity>
+                        {/* handleSlideDown */}
+                        <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
+                            <Image
+                                source={SlideDown}
+                                style={styles.slideDownImage}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <Text style={styles.needText}>NEED Assistant?</Text>
+                    <View style={styles.slideDownContainer}>
+                        <Text style={styles.slide}>SLIDE </Text>
+                        <Text style={styles.slideDown}>DOWN</Text>
+
+                    </View>
+                    <Text style={styles.bottomText}>
+                        {`No worries many people near you\nare glad to help you\nDon't forget to reward them!`}
+                    </Text>
                 </View>
-                <View style={styles.imageContainer}>
-                    <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
-                        <Image
-                            source={SlideUp}
-                            style={styles.slideUpImage}
-                        />
-                    </TouchableOpacity>
-                    {/* handleSlideDown */}
-                    <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
-                        <Image
-                            source={SlideDown}
-                            style={styles.slideDownImage}
-                        />
-                    </TouchableOpacity>
-                </View>
-                <Text style={styles.needText}>NEED Assistant?</Text>
-                <View style={styles.slideDownContainer}>
-                    <Text style={styles.slide}>SLIDE </Text>
-                    <Text style={styles.slideDown}>DOWN</Text>
-
-                </View>
-                <Text style={styles.bottomText}>
-                    {`No worries many people near you\nare glad to help you\nDon't forget to reward them!`}
-                </Text>
-          </View>
             </ScrollView>
 
         </View>
     );
 }
 const styles = StyleSheet.create({
-    bodyContainer:{
-           backgroundColor: "#ffffff",
+    bodyContainer: {
+        backgroundColor: "#ffffff",
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
         marginTop: -20,
     },
     imageContainer: {
-         paddingVertical: 40 
+        paddingVertical: 40
     },
     scrollContainer: {
         backgroundColor: "#ffffff",
@@ -192,7 +195,7 @@ const styles = StyleSheet.create({
         color: "#919191",
         textAlign: "center",
         lineHeight: 25,
-        marginTop: 20, 
+        marginTop: 20,
         paddingBottom: 55
     },
     container: {
