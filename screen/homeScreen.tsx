@@ -4,24 +4,39 @@ import SlideUp from '../assets/images/home/SlideUp.png';
 import SlideDown from '../assets/images/home/SlideDown.png';
 import Profile from '../assets/images/home/profile.png';
 import Menu from '../assets/icons/menu.png';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Directions, Gesture, GestureDetector, ScrollView } from 'react-native-gesture-handler';
+import { runOnJS } from 'react-native-reanimated';
 
 export default function Home({ navigation }) {
     const handleMenu = () => {
         console.log('Menu pressed');
     };
     const handleSlideUp = () => {
-        console.log('Slide Up pressed');
         navigation.navigate('JobPost');
     }
     const handleSlideDown = () => {
         navigation.navigate('MapScreen');
     }
+
+    const swipeUp = Gesture.Fling()
+        .direction(Directions.UP)
+        .onEnd(() => {
+
+            runOnJS(navigation.navigate)('JobPost');
+
+        });
+
+    const swipeDown = Gesture.Fling()
+        .direction(Directions.DOWN)
+        .onEnd(() => {
+            runOnJS(navigation.navigate)('MapScreen');
+        });
+    const gestures = Gesture.Simultaneous(swipeUp, swipeDown);
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#7BB88E" barStyle="light-content" />
-            <ScrollView style={styles.scrollContainer} 
-            showsVerticalScrollIndicator={false} 
+            <ScrollView style={styles.scrollContainer}
+                showsVerticalScrollIndicator={false}
 
             >
                 <View style={styles.headContainer}>
@@ -40,7 +55,11 @@ Jamil Hashem`}</Text>
                         </View>
 
                     </View>
-                    <TouchableOpacity onPress={handleMenu} style={[{ backgroundColor: "#ffffff", padding: 16, borderRadius: 50, position: "relative", top: -35, left: -15 }]}>
+                    <TouchableOpacity onPress={handleMenu} style={[{
+                        backgroundColor: "#ffffff", padding: 16, borderRadius: 50,
+                        position: "relative", top: -35, left: -15
+
+                    }]}>
                         <Image
                             source={Menu}
                             style={styles.menu} />
@@ -63,19 +82,17 @@ start helping and get rewarded`
 
                     </View>
                     <View style={styles.imageContainer}>
-                        <TouchableOpacity onPress={handleSlideUp} style={{ alignSelf: 'center' }}>
-                            <Image
-                                source={SlideUp}
-                                style={styles.slideUpImage}
-                            />
-                        </TouchableOpacity>
-                        {/* handleSlideDown */}
-                        <TouchableOpacity onPress={handleSlideDown} style={{ alignSelf: 'center' }}>
-                            <Image
-                                source={SlideDown}
-                                style={styles.slideDownImage}
-                            />
-                        </TouchableOpacity>
+                        <GestureDetector gesture={gestures}>
+                            <View style={{ alignItems: 'center' }}>
+                                <TouchableOpacity onPress={handleSlideUp}>
+                                    <Image source={SlideUp} style={styles.slideUpImage} />
+                                </TouchableOpacity>
+
+                                <TouchableOpacity onPress={handleSlideDown}>
+                                    <Image source={SlideDown} style={styles.slideDownImage} />
+                                </TouchableOpacity>
+                            </View>
+                        </GestureDetector>
                     </View>
                     <Text style={styles.needText}>NEED Assistant?</Text>
                     <View style={styles.slideDownContainer}>
@@ -124,6 +141,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         backgroundColor: "#7BB88E",
+        justifyContent: "space-between",
     },
     menu: {
         width: 15,
